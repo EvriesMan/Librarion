@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <title> Librarion </title>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body> 
+        <link rel="stylesheet" href="librarion.css" type="text/css" />
+        <style>
+        *{
+         margin: 0;
+        }
+            </style>
+           <img border="5" bordercolor="#000" src="https://www.mgpu.ru/wp-content/uploads/2019/04/architecture-book-shelves-bookcase-1319854.jpg" width="100%" height="100%" title="Эмблема сайта" alt="bg-fon"/>
+        <form>
+            <input type="text" id="name" placeholder="Имя"><br>
+            <input type="password" id="pass" placeholder="Пароль"><br>
+            <input type="email" id="email" placeholder="Email"><br>
+            <input type="button" id="button" value="Зарегаться">
+        </form>
+        <script>
+            var but = document.getElementById("button");
+            function AddUser(event){
+                var name = document.getElementById("name").value;
+                var password = document.getElementById("pass").value;
+                var email = document.getElementById("email").value; 
+                if(!(name.length > 3 && name.length < 7)){
+                    event.preventDefault();
+                    document.getElementById("name").style.borderColor = "red";
+                }
+                else   
+                {
+                    var user = {
+                    Name: name,
+                    Password: password,
+                    Email: email
+                }
+
+                localStorage.setItem("user",JSON.stringify(user));
+                }  
+            }
+            but.addEventListener("click", AddUser)
+        </script>  
+    </body>
+</html>

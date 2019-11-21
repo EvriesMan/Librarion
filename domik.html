@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <title> домик </title>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body> 
+            </style>
+        <form>
+            <input type="text" id="name" placeholder="Имя"><br>
+            <input type="text" id="pastname" placeholder="Фамилия"><br>
+            <input type="text" id="xnamex" placeholder="Отчество"><br>
+            <input type="password" id="pass" placeholder="Пароль"><br>
+            <input type="email" id="email" placeholder="Email"><br>
+            <input type="date" id="date" placeholder="Дата рождения"><br>
+            <input type="text" id="gender" placeholder="Пол"><br>
+            <input type="button" id="button" value="Зарегистрироваться">
+        </form>
+        <script>
+            var but = document.getElementById("button");
+            function AddUser(event){
+                var name = document.getElementById("name").value;
+                var pastname = document.getElementById("pastname").value;
+                var password = document.getElementById("pass").value;
+                var email = document.getElementById("email").value; 
+                var xnamex = document.getElementById("xnamex").value;
+                var gender = document.getElementById("gender").value;
+                var date = document.getElementById("date").value;
+                {
+                    var name = /^([А-Я]?)[а-я]{1,20}$/
+                    var email = /^([a-zA-Z0-9]+)@([a-zA-Z0-9]+)\.([a-z]+)$/
+                    var pastname = /^([А-Я]?)[а-я]{1,20}$/
+                    var xnamex = /^([А-Я]?)[а-я]{1,20}$/
+                    var password = /^\S$/
+
+                }
+                if(!(name.length > 3 && name.length < 21)){
+                    event.preventDefault();
+                    document.getElementById("name").style.borderColor = "red";
+                    (!(pastname.length > 2 && pastname.length < 21))
+                    event.preventDefault();
+                    document.getElementById("pastname").style.borderColor = "red";
+                    (!(password.length > 10 && password.length < 301))
+                    event.preventDefault();
+                    document.getElementById("pass").style.borderColor = "red";
+                    (!(email.length > 2 && email.length < 301 ))
+                    event.preventDefault();
+                    document.getElementById("email").style.borderColor = "red";
+                    
+                }
+                else
+                {
+                    var user = {
+                    Name: name,
+                    Pastname: pastname,
+                    Xnamex: xnamex,
+                    Date: date,
+                    Password: password,
+                    Email: email,
+                    Gender: gender
+
+                }
+
+
+                localStorage.setItem("user",JSON.stringify(user));
+                }  
+            }
+            but.addEventListener("click", AddUser)
+        </script>  
+    </body>
+</html>
